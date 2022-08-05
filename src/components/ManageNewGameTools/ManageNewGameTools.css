@@ -1,6 +1,9 @@
-nav .ManageNewGameTools {
+.ManageNewGameTools {
     display: flex;
     gap: 20px;
+    justify-content: center;
+    align-items: center;
+
     color: var(--secondary-color-darkblue);
 }
 
