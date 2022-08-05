@@ -1,0 +1,12 @@
+body{
+    height: 100vh;
+    width: 100%;
+    font-weight: 400;
+    margin: 0;
+    font-family: 'Bangers', cursive;
+    /* object-fit: fill; */
+    /* background-image: url(${process.env.PUBLIC_URL+ "/img/background-game.png"}); */
+    /* background-image: "img/background-game.png"; */
+    /* background-color: aqua; */
+}
+

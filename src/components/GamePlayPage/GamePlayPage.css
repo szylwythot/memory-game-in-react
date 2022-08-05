@@ -1,0 +1,24 @@
+.game-play-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gamePlayContainer{
+    width: 1099px;
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-board{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    color: #FDD723;
+}
