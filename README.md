@@ -1,3 +1,7 @@
+# Memory game in react
+
+This was a react interview excercise. I removed the parts which can identify the company, built it again from scratch.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
