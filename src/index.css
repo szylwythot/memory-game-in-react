@@ -1,6 +1,9 @@
 body {
     margin: 0;
     font-family: 'Bangers', cursive;
+    --main-color-yellow: #FDD723;
+    --secondary-color-darkblue: #162739;
+    --tirsiary-color-skyblue: #A2D6D4;
 }
 
 code {

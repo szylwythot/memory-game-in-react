@@ -20,5 +20,5 @@
     align-items: center;
     justify-content: center;
     height: 100px;
-    color: #FDD723;
+    color: var(--main-color-yellow);
 }

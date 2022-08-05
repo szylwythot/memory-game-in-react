@@ -1,11 +1,11 @@
 nav .ManageNewGameTools {
     display: flex;
     gap: 20px;
-    color: #162739;
+    color: var(--secondary-color-darkblue);
 }
 
 
 .ManageNewGameTools select{
-    color: #162739;
-    background-color: #A2D6D4;
+    background-color: var(--tirsiary-color-skyblue);
+    color: var(--secondary-color-darkblue);
 }
