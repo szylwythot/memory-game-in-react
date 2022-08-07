@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import './GamePlayPage.css';
 import Navigation from '../Navigation/Navigation.jsx';
-// import InfoBoard from "../InfoBoard";
+import InfoBoard from "../InfoBoard/InfoBoard.jsx";
 // import GameBoard from '../GameBoard';
 
 function GamePlayPage({handleHomeButtonClicked, gamePlayView}) {
@@ -18,9 +18,9 @@ function GamePlayPage({handleHomeButtonClicked, gamePlayView}) {
         // backgroundRepeat: 'no-repeat',
     };
 
-    // function handleRestartButtonClicked(){
-    //     console.log("restart button clicked");
-    // }
+    function handleRestartButtonClicked(){
+        console.log("restart button clicked");
+    }
 
     return (
         <div style={backgroundStyle}>
@@ -29,12 +29,12 @@ function GamePlayPage({handleHomeButtonClicked, gamePlayView}) {
             <div className='game-play-page'>
                 <Navigation handleHomeButtonClicked={handleHomeButtonClicked}/>
                 <div className='gamePlayContainer' >
-                    {/* <InfoBoard 
+                    <InfoBoard 
                         currentTries="0"
                         best="0" 
                         handleRestartButtonClicked={handleRestartButtonClicked}
                     />
-                    <GameBoard /> */}
+                    {/* <GameBoard /> */}
                 </div>
             </div> :
             <Navigate replace to="/" />
