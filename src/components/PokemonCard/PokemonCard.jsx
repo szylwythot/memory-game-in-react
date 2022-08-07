@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from 'react';
 import GameBoardContext from '../../GameBoardContext';
 import styled, { keyframes } from 'styled-components';
 
-function PokemonCard({pokeCardData}) {
+function PokemonCard({pokeCardData, onPokeCardClicked}) {
     let {image, backGroundImage, matched, id} = pokeCardData;
 
     const [flippedOnUi, setFlippedOnUi] = useState(false);
@@ -12,7 +12,7 @@ function PokemonCard({pokeCardData}) {
     const [revealedFirst, setRevealedFirst] = useState(false);
     const [flipping, setFlipping] = useState(false);
 
-    let {onPokeCardClicked} = useContext(GameBoardContext);
+    // let {onPokeCardClicked} = useContext(GameBoardContext);
 
     // backgroung-image = ${image}
     const flipAnimation = keyframes`

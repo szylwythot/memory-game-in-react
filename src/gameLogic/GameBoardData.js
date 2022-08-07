@@ -29,41 +29,6 @@ class GameBoardData{
         // this.pairingFinished = false;
     }
 
-    // flipcard logic
-    cardClicked = function (card){
-        if(card.matched){
-            console.log("Card is already matched.")
-            return;
-        }
-
-        if(this.isFirstCardSelected()){
-            console.log("First card is clicked.");
-            this.firstClickedCard = card;
-            // card.flip();
-
-        } else if(this.firstClickedCard !== card){
-            console.log("Second card is clicked")
-            // check the match
-            if(card.tryMatch(this.firstClickedCard)){
-                console.log("cards are matching!")
-                this.numberOfMatchedPairs += 1;
-
-                // check winning
-                if(this.numberOfMatchedPairs === this.size){
-                    this.gotWinner = true;
-                    console.log("We got a winner!!!")
-                }
-
-            } else {
-                console.log("cards dont match, try again!")
-                // if it is now a match we flip them back
-                // this.firstClickedCard.flip();
-                // card.flip();
-            }
-            this.firstClickedCard = {};
-        }
-    }
-
     populateBoard = function (){
         console.log("Board is being populated");
         // console.log(imgBack);
