@@ -16,18 +16,18 @@
 }
 
 img.background {
-    position: fixed; 
-    top: 0;
+    /* position: fixed;  */
+    /* top: 0;
     left: 0;
     transform: translate(-50%, -50%);
-    object-fit: cover;
+    object-fit: cover; */
     /* z-index: 0; */
-    /* position: absolute; 
+    position: absolute; 
     top: 0; 
     left: 0; 
     right: 0; 
     bottom: 0; 
     margin: auto; 
     min-width: 50%;
-    min-height: 50%; */
+    min-height: 50%;
 }

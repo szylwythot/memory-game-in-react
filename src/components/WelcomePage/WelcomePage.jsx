@@ -16,12 +16,13 @@ function WelcomePage({handleStartGame}) {
         // backgroundRepeat: 'no-repeat',
     };
   return (
-    // <div className='welcome-page' style={backgroundStyle}>
-    <div className='welcome-page' >
+    <div className='welcome-page' style={backgroundStyle}>
+    {/* <div className='welcome-page' > */}
+
         
         {/* <img src="img/background-start.png" alt="Background" className='home-background'/> */}
         {/* <div id="bg"> */}
-            <img src="../img/background-start.png" alt="Start pokemon background" className='background'/>
+        {/* <img src="../img/background-start.png" alt="Start pokemon background" className='background'/> */}
         {/* </div> */}
 
         <img src="img/pokemon-title.png" alt="Pokemon Title" className='poke-title-img'/>
