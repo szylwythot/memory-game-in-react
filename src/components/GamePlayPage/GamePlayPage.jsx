@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import './GamePlayPage.css';
 import Navigation from '../Navigation/Navigation.jsx';
 import InfoBoard from "../InfoBoard/InfoBoard.jsx";
-// import GameBoard from '../GameBoard';
+import GameBoard from '../GameBoard/GameBoard.jsx';
 
 function GamePlayPage({handleHomeButtonClicked, gamePlayView}) {
 
@@ -34,7 +34,7 @@ function GamePlayPage({handleHomeButtonClicked, gamePlayView}) {
                         best="0" 
                         handleRestartButtonClicked={handleRestartButtonClicked}
                     />
-                    {/* <GameBoard /> */}
+                    <GameBoard />
                 </div>
             </div> :
             <Navigate replace to="/" />

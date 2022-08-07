@@ -1,0 +1,16 @@
+.pokemon-cards{
+    /* height: 1099px;
+    width: 871px; */
+
+    display: grid;
+    grid-template-columns: 160px 160px 160px 160px 160px;
+    grid-template-rows: 160px 160px 160px 160px; 
+    grid-gap: 25px;
+
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 25px; */
+    align-items: center;
+    justify-content: center;
+}
+

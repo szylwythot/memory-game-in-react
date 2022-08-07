@@ -1,0 +1,39 @@
+.poke-card-img{
+    height: 160px;
+    width: 160px;
+    object-fit: cover;
+    /* border-right-color: #000000;
+    border-bottom-color: #000000;
+    border-left-color: #FE0000;
+    border-top-color: #bc2525; */
+}
+
+.poke-card-img.matched{
+    /* background-color: aquamarine; */
+    opacity: 50%;
+
+    /* border: solid #000 2px; */
+}
+
+/* .poke-card-img.flipping{
+
+    animation: 1s ease-in-out flipCard;
+} */
+
+
+/* @keyframes flipCard {
+  0% {
+    transform: rotate(180deg);
+    background-image: #F1B99B;
+    opacity: 30%;
+  }
+  90%{
+      background-color: #F1B99B;
+      opacity: 95%;
+  }
+  100% {
+    transform: rotate(0deg);
+    background-color: #98C865;
+    opacity: 1;
+  }
+} */

@@ -1,15 +1,23 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import GamePlayPage from './components/GamePlayPage/GamePlayPage.jsx';
 import WelcomePage from './components/WelcomePage/WelcomePage.jsx';
+import GameBoardContext from './GameBoardContext';
+import GameBoardData from './gameLogic/GameBoardData';
 
 function App() {
     const [gamePlayView, setGamePlayView] = useState(false);
+    const [gameBoardData, setGameBoardData] = useState({});
+    //  const {gameBoardData} = useContext(GameBoardContext);
+
+    function createNewGameBoard(){ // helper func
+        setGameBoardData(new GameBoardData(4));
+    }
 
     function handleStartGame(){
         console.log("start new game button pressed");
-        // createNewGameBoard();
+        createNewGameBoard();
         setGamePlayView(true);
     }
 
@@ -18,28 +26,43 @@ function App() {
         setGamePlayView(false);
     }
 
+    function onPokeCardClicked(card){
+        gameBoardData.cardClicked(card);
+    }
+
+    useEffect(() => {
+      console.log(gameBoardData.fullSize);
+    
+    //   return () => {
+    //     second
+    //   }
+    }, [gameBoardData]);
+    
+
     return (
         <div className="App">
+            <GameBoardContext.Provider value={{gameBoardData, handleStartGame, handleHomeButtonClicked, onPokeCardClicked}}>
             <BrowserRouter>
-                <Routes>
-                    <Route exact path={"/"} element={ 
-                        ! gamePlayView ? 
-                        <WelcomePage handleStartGame={handleStartGame}/> : 
-                        <Navigate replace to="/game-play" />
-                    }/>
-                    <Route 
-                        path="/game-play" 
-                        element={
-                            <GamePlayPage 
-                                handleHomeButtonClicked ={handleHomeButtonClicked} 
-                                gamePlayView={gamePlayView}
-                            />
-                        }
-                    />
-                </Routes>
-            </BrowserRouter>
+                    <Routes>
+                        <Route exact path={"/"} element={ 
+                            !gamePlayView ? 
+                            <WelcomePage handleStartGame={handleStartGame}/> : 
+                            <Navigate replace to="/game-play" />
+                        }/>
+                        <Route 
+                            path="/game-play" 
+                            element={
+                                <GamePlayPage 
+                                    handleHomeButtonClicked ={handleHomeButtonClicked} 
+                                    gamePlayView={gamePlayView}
+                                />
+                            }
+                        />
+                    </Routes>
+                </BrowserRouter>
+            </GameBoardContext.Provider>
         </div>
-  );
+    );
 }
 
 export default App;
