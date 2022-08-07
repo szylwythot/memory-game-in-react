@@ -10,10 +10,6 @@ class PokemonCardData  {
         this.gererateId(image); // sets this.id
     }
 
-    // pairWithCard = function (card){
-    //     this.machingDataCard = card;
-    //     card.machingDataCard = this;
-    // }
 
     // flip = function () {
     //     if(!this.matched){
@@ -22,18 +18,8 @@ class PokemonCardData  {
     //     }
     // }
 
-    // isMatching = function (card){
-    //     if(card === this){
-    //         this.matched = true;
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
-
     tryMatch = function (card){
         console.log("I try to match.");
-
 
         let result = false;
         
