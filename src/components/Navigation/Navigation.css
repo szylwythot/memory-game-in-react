@@ -1,0 +1,19 @@
+nav{
+    position: fixed;
+    left:0;
+    top:0;
+    width: 100vw;
+    background-color: #27415C;
+    display: flex;
+
+    height: 80px;
+    /* flex-basis: 1; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* nav > button{
+    margin: 0 50px 0 50px;
+} */

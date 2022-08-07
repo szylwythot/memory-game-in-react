@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import './GamePlayPage.css';
-// import Navigation from '../Navigation';
+import Navigation from '../Navigation/Navigation.jsx';
 // import InfoBoard from "../InfoBoard";
 // import GameBoard from '../GameBoard';
 
@@ -27,7 +27,7 @@ function GamePlayPage({handleHomeButtonClicked, gamePlayView}) {
         { 
             gamePlayView ?
             <div className='game-play-page'>
-                {/* <Navigation handleHomeButtonClicked={handleHomeButtonClicked}/> */}
+                <Navigation handleHomeButtonClicked={handleHomeButtonClicked}/>
                 <div className='gamePlayContainer' >
                     {/* <InfoBoard 
                         currentTries="0"
