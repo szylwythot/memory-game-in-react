@@ -18,9 +18,9 @@ function GamePlayPage({handleHomeButtonClicked, gamePlayView}) {
         // backgroundRepeat: 'no-repeat',
     };
 
-    function handleRestartButtonClicked(){
-        console.log("restart button clicked");
-    }
+    // function handleRestartButtonClicked(){
+    //     console.log("restart button clicked");
+    // }
 
     return (
         <div style={backgroundStyle}>
