@@ -1,18 +1,19 @@
 class PokemonCardData  {
     // static idCounter = 0;
 
-    constructor(image, backGroundImage="", machingDataCard={}, matched=false){
+    constructor(image, typeID, backGroundImage="", matched=false, selected=false){
         this.image = image;
-        this.machingDataCard = machingDataCard;
+        this.typeID = typeID;
         this.backGroundImage = backGroundImage;
         this.matched = matched;
+        this.selected = selected;
         this.gererateId(image); // sets this.id
     }
 
-    pairWithCard = function (card){
-        this.machingDataCard = card;
-        card.machingDataCard = this;
-    }
+    // pairWithCard = function (card){
+    //     this.machingDataCard = card;
+    //     card.machingDataCard = this;
+    // }
 
     // flip = function () {
     //     if(!this.matched){
@@ -33,8 +34,10 @@ class PokemonCardData  {
     tryMatch = function (card){
         console.log("I try to match.");
 
+
         let result = false;
-        if(card === this){
+        
+        if(card.typeID === this.typeID){
             console.log("WE are matching:)")
             this.matched = true;
             card.matched = true;

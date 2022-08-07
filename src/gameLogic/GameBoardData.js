@@ -76,9 +76,10 @@ class GameBoardData{
         // create cards
         for(let i = 0; i < this.size; i++){
             console.log(i);
-            let first = new PokemonCardData(this.cardImages[i], imgBack);
-            let second = new PokemonCardData(this.cardImages[i], imgBack);
-            second.pairWithCard(first);
+            let cardType = "card" + i
+            let first = new PokemonCardData(this.cardImages[i], cardType, imgBack);
+            let second = new PokemonCardData(this.cardImages[i], cardType, imgBack);
+            // second.pairWithCard(first);
             this.cards.push(first, second);
         }
         
