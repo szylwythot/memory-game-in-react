@@ -22,6 +22,10 @@ class GameBoardData{
         this.firstClickedCard = {};
         this.numberOfMatchedPairs = 0;
         this.gotWinner = false;
+        this.isFirstCardSelected = function(){
+        return Object.keys(this.firstClickedCard).length === 0;
+        // return true;
+        }
         // this.pairingFinished = false;
     }
 
@@ -32,7 +36,7 @@ class GameBoardData{
             return;
         }
 
-        if(this.isEmpty(this.firstClickedCard)){
+        if(this.isFirstCardSelected()){
             console.log("First card is clicked.");
             this.firstClickedCard = card;
             // card.flip();
@@ -58,10 +62,6 @@ class GameBoardData{
             }
             this.firstClickedCard = {};
         }
-    }
-
-    isEmpty = function(card){
-        return Object.keys(card).length === 0;
     }
 
     populateBoard = function (){
