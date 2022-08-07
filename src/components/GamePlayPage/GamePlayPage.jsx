@@ -9,7 +9,7 @@ function GamePlayPage({handleHomeButtonClicked, gamePlayView}) {
 
     const backgroundStyle={
         backgroundImage: "url(/img/background-game.png)",
-        height:'100vh',
+        height:'calc(100vh - 80px)',
         // left: '50%',
         // transform stranlate
         marginTop:'80px',
