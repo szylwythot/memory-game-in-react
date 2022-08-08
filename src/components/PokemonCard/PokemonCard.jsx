@@ -16,29 +16,29 @@ function PokemonCard({pokeCardData, onPokeCardClicked}) {
 
     // backgroung-image = ${image}
     const flipAnimation = keyframes`
-        0% {
-            transform: rotate(180deg);
-            background-image: #F1B99B;
-            opacity: 30%;
-            background-image: url(${image});
-        }
-        90%{
-            background-color: #F1B99B;
-            opacity: 95%;
-            background-image: url(${image});
-        }
-        100% {
-            transform: rotate(0deg);
-            background-color: #98C865;
-            opacity: 1;
-            background-image: url(${image});
-        }
+    0% {
+        transform: rotate(180deg);
+        background-image: #F1B99B;
+        opacity: 30%;
+        background-image: url(${image});
+    }
+    90%{
+        background-color: #F1B99B;
+        opacity: 95%;
+        background-image: url(${image});
+    }
+    100% {
+        transform: rotate(0deg);
+        background-color: #98C865;
+        opacity: 1;
+        background-image: url(${image});
+      }
     `;
 
     const FlippingCard = styled.div`
-        height: 160px;
-        width: 160px;
-        animation: 1s ease-in-out ${flipAnimation};
+    height: 160px;
+    width: 160px;
+    animation: 1s ease-in-out ${flipAnimation};
     `
     // const Container = styled.div`
     // display: flex;
@@ -76,6 +76,7 @@ function PokemonCard({pokeCardData, onPokeCardClicked}) {
     }, [flipping]);
 
     let onCardClicked = (event) =>{
+
         // flip if needed
         console.log("Card clicked");
 
@@ -85,7 +86,7 @@ function PokemonCard({pokeCardData, onPokeCardClicked}) {
             return;
         } else {
             // flip
-            setSelected(true);
+            // setSelected(true);
             setFlipping(true);
             setFlippedOnUi(!flippedOnUi);
         }
