@@ -1,7 +1,8 @@
 class PokemonCardData  {
     // static idCounter = 0;
 
-    constructor(image, typeID, backGroundImage="", matched=false, selected=false){
+    constructor(addOneMatch, image, typeID, backGroundImage="", matched=false, selected=false){
+        this.addOneMatch = addOneMatch;
         this.image = image;
         this.typeID = typeID;
         this.backGroundImage = backGroundImage;
@@ -10,31 +11,18 @@ class PokemonCardData  {
         this.gererateId(image); // sets this.id
     }
 
-
-    // flip = function () {
-    //     if(!this.matched){
-    //         console.log("I flip the card!")
-    //         this.flipped = !this.flipped;
-    //     }
-    // }
-
     tryMatch = function (card){
         console.log("I try to match.");
 
         let result = false;
         
         if(card.typeID === this.typeID){
-            console.log("WE are matching:)")
+            console.log("We are matching:)")
             this.matched = true;
             card.matched = true;
+            this.addOneMatch();
             result = true;
         }
-
-        // We have to flip them back either way they are matching or not
-
-        // this.flip();
-        // card.flip();
-        // console.log("WE are flipping after the trying the match making")
 
         return result;
     }

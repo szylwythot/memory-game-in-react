@@ -9,10 +9,11 @@ function PokemonCard({pokeCardData, onPokeCardClicked}) {
 
     const [flippedOnUi, setFlippedOnUi] = useState(false);
     const [matchedOnUi, setMatchedOnUi] = useState(matched);
-    const [selected, setSelected] = useState(false);
+    const [selectedOnUi, setSelectedOnUi] = useState(false);
     const [flipping, setFlipping] = useState(false);
+    const [waitForFlippingBack, setWaitForFlippingBack] = useState(false);
 
-    // let {onPokeCardClicked} = useContext(GameBoardContext);
+    const {gameBoardData, setGameBoardData} = useContext(GameBoardContext);
 
     // backgroung-image = ${image}
     const flipAnimation = keyframes`
@@ -66,35 +67,61 @@ function PokemonCard({pokeCardData, onPokeCardClicked}) {
 
         if(flipping){
             const timer = setTimeout(() => {
-                console.log("WE are flipping");
+                console.log("We are flipping");
                 setFlipping(false);
-              }, 1000);
-              return () => clearTimeout(timer);
-        } else {
-            console.log("WE are not flipping.")
-        }
+            }, 1000);
+
+            return () => clearTimeout(timer);
+        } 
     }, [flipping]);
 
-    let onCardClicked = (event) =>{
+    useEffect(() => {
+        // toggle flipping
+
+        if(waitForFlippingBack){
+            const timer = setTimeout(() => {
+                console.log("We waited 1.5 sec.");
+                setWaitForFlippingBack(false);
+            }, 1500);
+
+            return () => clearTimeout(timer);
+        } 
+    }, [waitForFlippingBack]);
+
+    let onCardClicked = () =>{
+
+        const toggleFlippedOnUi = () =>{
+            setFlippedOnUi(!flippedOnUi);
+        }
 
         // flip if needed
         console.log("Card clicked");
 
-        if(selected){
+        if(selectedOnUi){
             return;
-        } else if(matched) {
+        } else if (pokeCardData.matched){
             return;
         } else {
-            // flip
-            // setSelected(true);
+
+            onPokeCardClicked(pokeCardData); // check whether they are a match
+
             setFlipping(true);
-            setFlippedOnUi(!flippedOnUi);
+            toggleFlippedOnUi();
+            
+            if(pokeCardData.matched){
+                setMatchedOnUi(true);
+            } else {
+                setWaitForFlippingBack(true);
+                setFlipping(true);
+                toggleFlippedOnUi();
+            }
         }
+            
+            // flip
 
         // let card = event.target;
         // console.log(pokeCardData);
 
-        onPokeCardClicked(pokeCardData);
         setMatchedOnUi(matched);
         // setFlippedOnUi(pokeCardData.flipped); // these two lines should be somewhere else with card state changed "event"
         // setMatchedOnUi(matched);

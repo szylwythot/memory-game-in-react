@@ -19,12 +19,10 @@ class GameBoardData{
         this.fullSize = size * size;
         this.cards=[];
         this.populateBoard();
-        this.firstClickedCard = {};
         this.numberOfMatchedPairs = 0;
-        this.gotWinner = false;
-        this.isFirstCardSelected = function(){
-        return Object.keys(this.firstClickedCard).length === 0;
-        // return true;
+        // this.gotWinner = false;
+        this.hasWinner = function (){
+            return this.numberOfMatchedPairs === this.size;
         }
         // this.pairingFinished = false;
     }
@@ -51,12 +49,16 @@ class GameBoardData{
             throw Error("Size is too big");
         }
 
+        const addOnetoMatchedPairsNumber = () => {
+            this.numberOfMatchedPairs++;
+        }
+
         // create cards
         for(let i = 0; i < this.size; i++){
             console.log(i);
-            let cardType = "card" + i
-            let first = new PokemonCardData(this.cardImages[i], cardType, imgBack);
-            let second = new PokemonCardData(this.cardImages[i], cardType, imgBack);
+            let cardType = "card" + i;
+            let first = new PokemonCardData(addOnetoMatchedPairsNumber, this.cardImages[i], cardType, imgBack);
+            let second = new PokemonCardData(addOnetoMatchedPairsNumber, this.cardImages[i], cardType, imgBack);
             // second.pairWithCard(first);
             this.cards.push(first, second);
         }

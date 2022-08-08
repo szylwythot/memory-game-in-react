@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import GameBoardContext from '../../GameBoardContext';
 import PokemonCard from '../PokemonCard/PokemonCard.jsx';
@@ -6,45 +6,46 @@ import "./GameBoard.css";
 // import GameBoardData from '../../gameLogic/GameBoardData';
 
 function GameBoard() {
-    // const [gameBoardData, setGameBoardData] = useState({});
-    const {gameBoardData} = useContext(GameBoardContext);
+    const [firstClickedCard, setFirstClickedCard] = useState({});
 
-    function onPokeCardClicked(card){
-        cardClicked(card);
+    const {gameBoardData} = useContext(GameBoardContext);
+    
+    let isFirstCardSelected = function(){
+        return Object.keys(firstClickedCard).length === 0;
     }
 
-    // flipcard logic
-    let cardClicked = function (card){
+    function onPokeCardClicked(card){
+
         if(card.matched){
             console.log("Card is already matched.")
             return;
         }
 
-        if(gameBoardData.isFirstCardSelected()){
+        if(!isFirstCardSelected()){
             console.log("First card is clicked.");
-            gameBoardData.firstClickedCard = card;
-            // card.flip();
+            setFirstClickedCard(card);
 
-        } else if(gameBoardData.firstClickedCard !== card){
-            console.log("Second card is clicked")
+        } else if(firstClickedCard === card){
+            console.log("First card is clicked again, click on another card!")
+            return;
+        } else {
+            console.log("Second card is clicked.")
+            setFirstClickedCard({}); 
+
             // check the match
-            if(card.tryMatch(gameBoardData.firstClickedCard)){
-                console.log("cards are matching!")
-                gameBoardData.numberOfMatchedPairs += 1;
+            if(card.tryMatch(firstClickedCard)){
 
+                console.log("cards are matching!")
+                // gameBoardData.numberOfMatchedPairs += 1; // its a logic, went to card and board data
                 // check winning
-                if(gameBoardData.numberOfMatchedPairs === gameBoardData.size){
-                    gameBoardData.gotWinner = true;
+                if(gameBoardData.hasWinner()){
+                    // set some context to true
                     console.log("We got a winner!!!")
                 }
 
             } else {
-                console.log("cards dont match, try again!")
-                // if it is now a match we flip them back
-                // gameBoardData.firstClickedCard.flip();
-                // card.flip();
+                console.log("cards dont match, try again!");
             }
-            gameBoardData.firstClickedCard = {};
         }
     }
 
