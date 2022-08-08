@@ -1,10 +1,12 @@
 import React from 'react';
+import GameBoardContext from '../../GameBoardContext.jsx';
 // import pokemonTitle from '../img/pokemon-title.png';
 import ManageNewGameTools from '../ManageNewGameTools/ManageNewGameTools.jsx';
 import "./WelcomePage.css";
 // import backgroundStart from '../img/background-start.png';
 
-function WelcomePage({handleStartGame}) {
+function WelcomePage() {
+
     const backgroundStyle={
         backgroundImage: "url(/img/background-start.png)",
         height:'100vh',
@@ -26,7 +28,7 @@ function WelcomePage({handleStartGame}) {
         {/* </div> */}
 
         <img src="img/pokemon-title.png" alt="Pokemon Title" className='poke-title-img'/>
-        <ManageNewGameTools handleStartGame={handleStartGame}/>
+        <ManageNewGameTools />
     </div>
   )
 }

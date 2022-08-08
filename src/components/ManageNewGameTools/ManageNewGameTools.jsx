@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import GameBoardContext from '../../GameBoardContext.jsx';
+import GameBoardData from '../../gameLogic/GameBoardData.js';
 import BasicButton from '../BasicButton/BasicButton.jsx';
 import "./ManageNewGameTools.css";
 
-function ManageNewGameTools({handleStartGame}) {
-    
+function ManageNewGameTools() {
+    const {gamePlayView, setGamePlayView, gameBoardData, setGameBoardData} = useContext(GameBoardContext);
+
+    function createNewGameBoard(){ // helper func
+        setGameBoardData(new GameBoardData(4));
+    }
+
+    const handleStartGame = (event) => {
+        event.preventDefault();
+        console.log("start new game button pressed");
+        createNewGameBoard();
+        setGamePlayView(true);
+    }
+
     return (
         <div className='ManageNewGameTools'>
             <select name="deck-size" id="deck-size" aria-label='Deck size' className='basic-tool'>

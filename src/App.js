@@ -11,15 +11,6 @@ function App() {
     const [gameBoardData, setGameBoardData] = useState({});
     //  const {gameBoardData} = useContext(GameBoardContext);
 
-    function createNewGameBoard(){ // helper func
-        setGameBoardData(new GameBoardData(4));
-    }
-
-    function handleStartGame(){
-        console.log("start new game button pressed");
-        createNewGameBoard();
-        setGamePlayView(true);
-    }
 
     function handleHomeButtonClicked(){
         console.log("home button pressed");
@@ -41,12 +32,12 @@ function App() {
 
     return (
         <div className="App">
-            <GameBoardContext.Provider value={{gameBoardData, handleStartGame, handleHomeButtonClicked, onPokeCardClicked}}>
+            <GameBoardContext.Provider value={{gamePlayView, setGamePlayView, gameBoardData, setGameBoardData, handleHomeButtonClicked, onPokeCardClicked}}>
             <BrowserRouter>
                     <Routes>
                         <Route exact path={"/"} element={ 
                             !gamePlayView ? 
-                            <WelcomePage handleStartGame={handleStartGame}/> : 
+                            <WelcomePage /> : 
                             <Navigate replace to="/game-play" />
                         }/>
                         <Route 
