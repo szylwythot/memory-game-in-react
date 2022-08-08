@@ -1,5 +1,5 @@
 import React from 'react';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import GameBoardContext from '../../GameBoardContext';
 import PokemonCard from '../PokemonCard/PokemonCard.jsx';
 import "./GameBoard.css";
@@ -51,6 +51,10 @@ function GameBoard() {
     return (
         <div className='pokemon-cards'>
             {
+                // restarted ?
+                // gameBoardData.cards.map((card) => {
+                //     return <PokemonCard key={card.id} pokeCardData={card} onPokeCardClicked={onPokeCardClicked}/>
+                // }) :
                 gameBoardData.cards.map((card) => {
                     return <PokemonCard key={card.id} pokeCardData={card} onPokeCardClicked={onPokeCardClicked}/>
                 })

@@ -29,6 +29,19 @@ class GameBoardData{
         // this.pairingFinished = false;
     }
 
+    static restartGame = function (gameBoardData){
+        let resultGameBoard = {...gameBoardData}; // selected még nem megy!
+        console.log(resultGameBoard.cards);
+        console.log("copy is succesful: " + !(resultGameBoard === gameBoardData));
+        resultGameBoard.cards.map(card => {
+            card.matched = false;
+            card.selected = false;
+            return card;
+        });
+        console.log(resultGameBoard.cards);
+        return resultGameBoard;
+    }
+
     populateBoard = function (){
         console.log("Board is being populated");
         // console.log(imgBack);

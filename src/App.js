@@ -1,10 +1,10 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import GamePlayPage from './components/GamePlayPage/GamePlayPage.jsx';
 import WelcomePage from './components/WelcomePage/WelcomePage.jsx';
 import GameBoardContext from './GameBoardContext';
-import GameBoardData from './gameLogic/GameBoardData';
+// import GameBoardData from './gameLogic/GameBoardData';
 
 function App() {
     const [gamePlayView, setGamePlayView] = useState(false);
@@ -21,13 +21,13 @@ function App() {
         gameBoardData.cardClicked(card);
     }
 
-    useEffect(() => {
-      console.log(gameBoardData.fullSize);
+    // useEffect(() => {
+    //   console.log(gameBoardData.fullSize);
     
-    //   return () => {
-    //     second
-    //   }
-    }, [gameBoardData]);
+    // //   return () => {
+    // //     second
+    // //   }
+    // }, [gameBoardData]);
     
 
     return (

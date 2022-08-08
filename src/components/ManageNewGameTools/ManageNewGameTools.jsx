@@ -5,7 +5,7 @@ import BasicButton from '../BasicButton/BasicButton.jsx';
 import "./ManageNewGameTools.css";
 
 function ManageNewGameTools() {
-    const {gamePlayView, setGamePlayView, gameBoardData, setGameBoardData} = useContext(GameBoardContext);
+    const { setGamePlayView, setGameBoardData} = useContext(GameBoardContext);
 
     function createNewGameBoard(){ // helper func
         setGameBoardData(new GameBoardData(4));

@@ -1,5 +1,5 @@
 import React from 'react';
-import GameBoardContext from '../../GameBoardContext.jsx';
+// import GameBoardContext from '../../GameBoardContext.jsx';
 // import pokemonTitle from '../img/pokemon-title.png';
 import ManageNewGameTools from '../ManageNewGameTools/ManageNewGameTools.jsx';
 import "./WelcomePage.css";

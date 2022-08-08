@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import './GamePlayPage.css';
 import Navigation from '../Navigation/Navigation.jsx';
 import InfoBoard from "../InfoBoard/InfoBoard.jsx";
 import GameBoard from '../GameBoard/GameBoard.jsx';
+import GameBoardContext from '../../GameBoardContext';
+import GameBoardData from '../../gameLogic/GameBoardData';
 
 function GamePlayPage({handleHomeButtonClicked, gamePlayView}) {
+
+    // const {restarted, setRestarted} = useContext(GameBoardContext);
+    const {gameBoardData, setGameBoardData} = useContext(GameBoardContext);
 
     const backgroundStyle={
         backgroundImage: "url(/img/background-game.png)",
@@ -19,8 +24,20 @@ function GamePlayPage({handleHomeButtonClicked, gamePlayView}) {
     };
 
     function handleRestartButtonClicked(){
+        // setRestarted(true);
         console.log("restart button clicked");
+        let restartedGameBoard = GameBoardData.restartGame(gameBoardData);
+        setGameBoardData(restartedGameBoard);
     }
+
+    // useEffect(() => {
+    //     console.log("restart button clicked");
+    
+    //   return () => {
+    //     //
+    //   }
+    // }, [restarted])
+    
 
     return (
         <div style={backgroundStyle}>
