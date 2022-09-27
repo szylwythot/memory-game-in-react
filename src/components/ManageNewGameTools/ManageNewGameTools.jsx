@@ -8,7 +8,7 @@ function ManageNewGameTools() {
     const { setGamePlayView, setGameBoardData} = useContext(GameBoardContext);
 
     function createNewGameBoard(){ // helper func
-        setGameBoardData(new GameBoardData(4));
+        setGameBoardData(new GameBoardData(6));
     }
 
     const handleStartGame = (event) => {
